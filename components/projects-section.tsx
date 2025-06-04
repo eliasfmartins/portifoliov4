@@ -16,8 +16,8 @@ const ProjectsSection = () => {
 
 	// Imagens específicas para cada projeto
 	const projectImages = [
-		"/images/yasuo.png", // Sistema da Defensoria Pública
-		"/images/zed.png", // API de Gerenciamento
+		"/images/yasuo.png", // 
+		"/images/imobiliaria.png", // 
 		"/images/cineverse.png", // Dashboard Interativo
 		"/images/portfolio.png", // Portfólio Pessoal
 		"/images/api.webp", // Portfólio Pessoal
