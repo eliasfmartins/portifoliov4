@@ -14,11 +14,19 @@ const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(0)
   const { t } = useLanguage()
 
+  // Imagens específicas para cada projeto
+   const projectImages = [
+    "/images/yasuo.png", // Sistema da Defensoria Pública
+    "/images/zed.png", // API de Gerenciamento
+    "/image/dashboard.png", // Dashboard Interativo
+    "/image/portfolio.png", // Portfólio Pessoal
+  ]
+
   const projects = t("projects.list").map((project: any, index: number) => ({
     id: index + 1,
     title: project.title,
     description: project.description,
-    image: "/placeholder.svg?height=400&width=600",
+    image: projectImages[index] || "/placeholder.svg?height=400&width=600",
     category: project.category,
     technologies: project.technologies,
     liveUrl: index === 2 ? "https://example.com" : index === 3 ? "https://elias.dev.br" : null,
@@ -159,13 +167,30 @@ const ProjectsSection = () => {
             {/* Mobile: Simple card display */}
             <div className="block md:hidden">
               <div className="relative w-full max-w-sm mx-auto">
-                <div className="relative h-64 w-full rounded-lg overflow-hidden border-2 border-teal-400 shadow-neon-lg transition-all duration-300 hover:border-teal-300 hover:shadow-neon-xl">
+                <div className="relative h-48 w-full rounded-lg overflow-hidden border-2 border-teal-400 shadow-neon-lg transition-all duration-300 hover:border-teal-300 hover:shadow-neon-xl">
                   <img
                     src={filteredProjects[selectedProject]?.image || "/placeholder.svg"}
                     alt={filteredProjects[selectedProject]?.title}
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+
+                  {/* Overlay com informações do projeto */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="text-center p-4">
+                      <h4 className="text-white font-semibold mb-2">{filteredProjects[selectedProject]?.title}</h4>
+                      <div className="flex flex-wrap gap-1 justify-center">
+                        {filteredProjects[selectedProject]?.technologies
+                          .slice(0, 3)
+                          .map((tech: string, index: number) => (
+                            <span key={index} className="px-2 py-1 bg-teal-400/20 rounded text-xs text-teal-400">
+                              {tech}
+                            </span>
+                          ))}
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-black/60 text-center">
                     <p className="text-sm text-white font-medium">{filteredProjects[selectedProject]?.title}</p>
                   </div>
@@ -173,7 +198,7 @@ const ProjectsSection = () => {
               </div>
             </div>
 
-            {/* Desktop: 3D Carousel */}
+            {/* Desktop: 3D Carousel with Rectangular Cards */}
             <div className="hidden md:block">
               <button
                 onClick={() => scrollCarousel("left")}
@@ -184,8 +209,8 @@ const ProjectsSection = () => {
                 <ChevronLeft className="h-5 w-5" />
               </button>
 
-              {/* 3D Carousel */}
-              <div className="h-[300px] relative flex items-center justify-center perspective-1000 overflow-visible">
+              {/* 3D Carousel with Rectangular Format */}
+              <div className="h-[280px] relative flex items-center justify-center perspective-1000 overflow-visible">
                 {filteredProjects.map((project, index) => {
                   const distance = index - selectedProject
                   const absDistance = Math.abs(distance)
@@ -195,14 +220,14 @@ const ProjectsSection = () => {
                   const zIndex = 20 - absDistance
                   const opacity = 1 - absDistance * 0.2
                   const scale = 1.1 - absDistance * 0.15
-                  const rotateY = distance * 25
-                  const translateZ = -80 * absDistance
-                  const translateX = distance * 70
+                  const rotateY = distance * 20 // Reduced rotation for rectangular cards
+                  const translateZ = -60 * absDistance // Reduced depth
+                  const translateX = distance * 90 // Increased spacing for wider cards
 
                   return (
                     <motion.div
                       key={project.id}
-                      className="absolute flex-shrink-0 w-48 cursor-pointer"
+                      className="absolute flex-shrink-0 cursor-pointer group"
                       style={{
                         zIndex,
                         opacity,
@@ -213,8 +238,9 @@ const ProjectsSection = () => {
                       }}
                       onClick={() => handleProjectSelect(index)}
                     >
+                      {/* Rectangular Card: Width > Height */}
                       <div
-                        className={`relative h-60 w-40 rounded-md overflow-hidden transform transition-all duration-500 ${
+                        className={`relative w-72 h-44 rounded-xl overflow-hidden transform transition-all duration-500 ${
                           selectedProject === index
                             ? "border-2 border-teal-400 shadow-neon-xl"
                             : "border border-teal-400/30 hover:border-teal-400/60"
@@ -223,16 +249,57 @@ const ProjectsSection = () => {
                         <img
                           src={project.image || "/placeholder.svg"}
                           alt={project.title}
-                          className="h-full w-full object-cover"
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
+                        {/* Project Info Overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <h4 className="text-white font-semibold text-sm mb-2 truncate">{project.title}</h4>
+                          <div className="flex flex-wrap gap-1">
+                            {project.technologies.slice(0, 3).map((tech: string, techIndex: number) => (
+                              <span
+                                key={techIndex}
+                                className="px-2 py-1 bg-teal-400/20 border border-teal-400/30 rounded text-xs text-teal-400 font-medium"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                            {project.technologies.length > 3 && (
+                              <span className="px-2 py-1 bg-gray-600/20 border border-gray-400/30 rounded text-xs text-gray-400">
+                                +{project.technologies.length - 3}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Hover Overlay with Additional Info */}
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <div className="text-center p-4">
+                            <h4 className="text-white font-semibold mb-2">{project.title}</h4>
+                            <p className="text-gray-300 text-xs mb-3 line-clamp-2">
+                            </p>
+                            <div className="flex justify-center gap-2">
+                              <span className="px-2 py-1 bg-teal-400/30 rounded text-xs text-white">
+                                {project.category}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Active Project Indicator */}
                         {selectedProject === index && (
-                          <div className="absolute top-2 right-2 h-3 w-3 rounded-full bg-teal-400 animate-pulse shadow-neon" />
+                          <div className="absolute top-3 right-3 flex items-center gap-2">
+                            <div className="h-2 w-2 rounded-full bg-teal-400 animate-pulse shadow-neon" />
+                            <span className="text-teal-400 text-xs font-mono">ACTIVE</span>
+                          </div>
                         )}
 
-                        <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 text-center">
-                          <p className="text-xs text-white truncate">{project.title}</p>
+                        {/* Category Badge */}
+                        <div className="absolute top-3 left-3">
+                          <span className="px-2 py-1 bg-black/60 backdrop-blur-sm border border-teal-400/30 rounded text-xs text-teal-400 font-medium">
+                            {project.category}
+                          </span>
                         </div>
                       </div>
                     </motion.div>
@@ -252,13 +319,13 @@ const ProjectsSection = () => {
           </div>
         </div>
 
-        {/* Thumbnails Navigation */}
-        <div className="flex justify-center space-x-2 overflow-x-auto pb-4">
+        {/* Thumbnails Navigation - Updated for Rectangular Format */}
+        <div className="flex justify-center space-x-3 overflow-x-auto pb-4">
           {filteredProjects.map((project, index) => (
             <button
               key={project.id}
               onClick={() => handleProjectSelect(index)}
-              className={`relative flex-shrink-0 w-14 h-14 rounded-md overflow-hidden border-2 transition-all duration-300 ${
+              className={`relative flex-shrink-0 w-20 h-12 rounded-md overflow-hidden border-2 transition-all duration-300 group ${
                 selectedProject === index
                   ? "border-teal-400 shadow-neon-lg"
                   : "border-gray-600 hover:border-teal-400/50"
@@ -267,13 +334,17 @@ const ProjectsSection = () => {
               <img
                 src={project.image || "/placeholder.svg"}
                 alt={project.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div
                 className={`absolute inset-0 transition-all duration-300 ${
                   selectedProject === index ? "bg-teal-400/20" : "bg-black/40 hover:bg-black/20"
                 }`}
               />
+              {/* Thumbnail indicator */}
+              {selectedProject === index && (
+                <div className="absolute top-1 right-1 h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
+              )}
             </button>
           ))}
         </div>
