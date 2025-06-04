@@ -255,6 +255,8 @@ deploy.production({ uptime: '99.9%' });`,
 						"Development of web interfaces using Next.js, React, and TypeScript. Integration with REST APIs, implementation of animations with Framer Motion, and creation of interactive components such as 3D cards. Support in maintaining and improving existing systems.",
 					category: "frontend",
 					technologies: ["Next.js", "React", "TypeScript", "FrameMotion", "Taiwind CSS"],
+					liveUrl: "https://league-project-lco2.vercel.app/",
+					githubUrl: "https://github.com/eliasfmartins/league-project",
 				},
 				{
 					title: "Martins e Silva Real Estate",
@@ -270,16 +272,27 @@ deploy.production({ uptime: '99.9%' });`,
 						"JWT",
 						"PostgreSQL",
 						"Supabase"
-					]
+					],
+					liveUrl: "https://imobiliariamartinsesilva.com.br/",
+					githubUrl: "https://github.com/eliasfmartins/imobiliaria_api"
 				}
 
 				,
 				{
-					title: "Interactive Dashboard",
+					title: "CineVerse",
 					description:
-						"Dashboard with real-time charts, performance metrics and data analysis using React and TypeScript.",
+						"A movie discovery web platform built with Next.js, React, and TypeScript. It consumes a public movie API to display trending films, movie details, cast, and actor information. Features a modern interface with smooth animations using Framer Motion, responsive design, and dynamic page navigation.",
 					category: "frontend",
-					technologies: ["React", "TypeScript", "Chart.js", "Tailwind CSS"],
+					technologies: [
+						"Next.js",
+						"React",
+						"TypeScript",
+						"Framer Motion",
+						"Tailwind CSS",
+						"TMDb API"
+					],
+					liveUrl: "https://consumindo-api-filmes-vkor.vercel.app/",
+					githubUrl: "https://github.com/eliasfmartins/consumindo-api-filmes"
 				},
 				{
 					title: "Personal Portfolio",
@@ -287,6 +300,9 @@ deploy.production({ uptime: '99.9%' });`,
 						"This portfolio itself, developed with Next.js, Framer Motion and Tailwind CSS, demonstrating modern design skills.",
 					category: "frontend",
 					technologies: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript"],
+
+					liveUrl: "https://elias.dev.br",
+					githubUrl: "https://github.com/eliasfmartins/portifoliov4"
 				},
 			],
 		},
@@ -647,6 +663,8 @@ deploy.production({ uptime: '99.9%' });`,
 						"Desenvolvimento de interfaces web utilizando Next.js, React e TypeScript. Consumo de APIs REST, aplicação de animações com Framer Motion e criação de componentes interativos, como cartões em 3D. Apoio na manutenção e evolução de sistemas existentes.",
 					category: "frontend",
 					technologies: ["Next.js", "React", "TypeScript", "FrameMotion", "Taiwind CSS"],
+					liveUrl: "https://league-project-lco2.vercel.app/",
+					githubUrl: "https://github.com/eliasfmartins/league-project"
 				},
 				{
 					title: "Imobiliária Martins e Silva",
@@ -662,15 +680,27 @@ deploy.production({ uptime: '99.9%' });`,
 						"JWT",
 						"PostgreSQL",
 						"Supabase"
-					]
+					],
+					liveUrl: "https://imobiliariamartinsesilva.com.br/",
+					githubUrl: "https://github.com/eliasfmartins/imobiliaria_api"
 				}
 				,
 				{
-					title: "Dashboard Interativo",
+					title: "CineVerse",
 					description:
-						"Dashboard com gráficos em tempo real, métricas de performance e análise de dados usando React e TypeScript.",
+						"Plataforma web para descoberta de filmes, desenvolvida com Next.js, React e TypeScript. Consome uma API pública de filmes para exibir produções em alta, detalhes dos filmes, elencos e informações dos atores. Interface moderna com animações suaves usando Framer Motion, design responsivo e navegação dinâmica entre as páginas.",
 					category: "frontend",
-					technologies: ["React", "TypeScript", "Chart.js", "Tailwind CSS"],
+					technologies: [
+						"Next.js",
+						"React",
+						"TypeScript",
+						"Framer Motion",
+						"Tailwind CSS",
+						"TMDb API"
+					]
+					,
+					liveUrl: "https://consumindo-api-filmes-vkor.vercel.app/",
+					githubUrl: "https://github.com/eliasfmartins/consumindo-api-filmes"
 				},
 				{
 					title: "Portfólio Pessoal",
@@ -678,6 +708,8 @@ deploy.production({ uptime: '99.9%' });`,
 						"Este próprio portfólio, desenvolvido com Next.js, Framer Motion e Tailwind CSS, demonstrando habilidades em design moderno.",
 					category: "frontend",
 					technologies: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript"],
+					liveUrl: "https://elias.dev.br",
+					githubUrl: "https://github.com/eliasfmartins/portifoliov4"
 				},
 			],
 		},

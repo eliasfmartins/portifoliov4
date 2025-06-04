@@ -108,7 +108,7 @@ const AboutSection = () => {
 				</div>
 			</div>
 
-			<div className="max-w-6xl mx-auto px-6 relative z-10">
+			<div className="max-w-[1200px] mx-auto px-6 relative z-10">
 				{/* Header */}
 				<motion.div
 					className="text-center mb-16"
@@ -385,8 +385,8 @@ const AboutSection = () => {
 											<button
 												key={index}
 												className={`px-4 py-2 text-sm font-medium font-rajdhani transition-all duration-300 ${activeTab === index
-														? "text-teal-400 border-b-2 border-teal-400"
-														: "text-gray-400 hover:text-teal-300 hover:border-b-2 hover:border-teal-400/50"
+													? "text-teal-400 border-b-2 border-teal-400"
+													: "text-gray-400 hover:text-teal-300 hover:border-b-2 hover:border-teal-400/50"
 													}`}
 												onClick={() => setActiveTab(index)}
 											>

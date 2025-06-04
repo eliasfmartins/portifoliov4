@@ -170,7 +170,7 @@ const Header = () => {
 									/>
 								</div>
 								<span className="text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-teal-400 to-teal-200 bg-clip-text text-transparent drop-shadow-neon font-orbitron">
-									Elias.dev
+									{"<Elias.dev/>"}
 								</span>
 							</motion.div>
 
@@ -284,7 +284,7 @@ const Header = () => {
 									/>
 								</div>
 								<span className="text-base md:text-lg font-bold bg-gradient-to-r from-teal-400 to-teal-200 bg-clip-text text-transparent drop-shadow-neon font-orbitron">
-									Elias.dev
+									{"<Elias.dev/>"}
 								</span>
 							</motion.div>
 
