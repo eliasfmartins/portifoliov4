@@ -152,7 +152,7 @@ const Header = () => {
 			{/* Header normal quando não está scrolled */}
 			{!isScrolled && (
 				<motion.nav initial={{ y: 0 }} animate={{ y: 0 }} className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-					<div className="mx-auto px-4 md:px-6 sm:w-[95%] max-w-[1400px]  border-teal-400">
+					<div className="mx-auto px-4 md:px-6 sm:w-[95%] max-w-[1200px]  border-teal-400">
 						<div className="flex items-center justify-between py-3 md:py-4">
 							{/* Logo */}
 							<motion.div
@@ -244,7 +244,7 @@ const Header = () => {
 									transition={{ duration: 0.3 }}
 									onClick={(e) => e.stopPropagation()}
 								>
-									<div className="w-[90%] max-w-[1400px] mx-auto">
+									<div className="w-[90%] max-w-[1200px] mx-auto">
 										<div className="flex flex-col space-y-2 py-4">
 											{navItems.map((item, index) => (
 												<MobileMenuItem key={`mobile-${item.key}`} item={item} index={index} />
@@ -266,11 +266,11 @@ const Header = () => {
 					transition={{ duration: 0.3 }}
 					className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 md:px-6"
 				>
-					<div className="w-full max-w-[1400px] bg-black/90 backdrop-blur-xl border rounded-3xl px-6 py-6  border-teal-400 shadow-neon-lg">
+					<div className="w-full max-w-[1200px] bg-black/90 backdrop-blur-xl border rounded-3xl px-6 py-6  border-teal-400 shadow-neon-lg">
 						<div className="flex items-center justify-between  ">
 							{/* Logo */}
 							<motion.div
-								className="flex items-center space-x-2 cursor-pointer group w-[90%] max-w-[1400px]"
+								className="flex items-center space-x-2 cursor-pointer group w-[90%] max-w-[1200px]"
 								whileHover={{ scale: 1.05 }}
 								transition={{ duration: 0.2 }}
 								onClick={() => scrollToSection("home")}
@@ -349,7 +349,7 @@ const Header = () => {
 					<AnimatePresence>
 						{isMobileMenuOpen && (
 							<motion.div
-								className="mobile-menu-container lg:hidden absolute top-full left-1/2 transform -translate-x-1/2 mt-4 w-[90%] max-w-[1400px]  backdrop-blur-xl rounded-2xl overflow-hidden z-50"
+								className="mobile-menu-container lg:hidden absolute top-full left-1/2 transform -translate-x-1/2 mt-4 w-[90%] max-w-[1200px]  backdrop-blur-xl rounded-2xl overflow-hidden z-50"
 
 								initial={{ opacity: 0, height: 0 }}
 								animate={{ opacity: 1, height: "auto" }}
