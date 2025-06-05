@@ -16,11 +16,11 @@ const ProjectsSection = () => {
 
 	// Imagens específicas para cada projeto
 	const projectImages = [
-		"/images/yasuo.png", // 
-		"/images/imobiliaria.png", // 
-		"/images/cineverse.png", // Dashboard Interativo
-		"/images/portfolio.png", // Portfólio Pessoal
-		"/images/api.webp", // Portfólio Pessoal
+		"/images/yasuo.png", 
+		"/images/imobiliaria.png",
+		"/images/cineverse.png", 
+		"/images/portfolio.png",
+		"/images/api.webp",
 	]
 
 const projects = t("projects.list").map((project: any, index: number) => ({
@@ -253,6 +253,7 @@ const projects = t("projects.list").map((project: any, index: number) => ({
 												<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
 												{/* Project Info Overlay */}
+												{/* 
 												<div className="absolute bottom-0 left-0 right-0 p-4">
 													<h4 className="text-white font-semibold text-sm mb-2 truncate">{project.title}</h4>
 													<div className="flex flex-wrap gap-1">
@@ -271,6 +272,8 @@ const projects = t("projects.list").map((project: any, index: number) => ({
 														)}
 													</div>
 												</div>
+												*/}
+												
 
 												{/* Hover Overlay with Additional Info */}
 												<div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
